@@ -1,4 +1,4 @@
-// Structor page
+// Structure page
 const container = document.createElement("main");
 const counterBox = document.createElement("div");
 
@@ -15,7 +15,7 @@ plusBtn.textContent = "+";
 const minusBtn = document.createElement("button");
 minusBtn.textContent = "-";
 
-// Stucture HTML
+// Build DOM
 document.body.append(container);
 container.append(counterBox);
 
@@ -35,6 +35,24 @@ counterValue.classList.add("counter__value")
 counterPlatform.classList.add("counter__platform")
 plusBtn.classList.add("counter__btn-plus")
 minusBtn.classList.add("counter__btn-minus")
+
+
+// Apply inline styles
+container.style.background = "#111";
+container.style.height = "100vh";
+container.style.display = "flex";
+container.style.justifyContent = "center";
+
+counterBox.style.display = "flex";
+counterBox.style.flexDirection = "column";
+counterBox.style.justifyContent= "center";
+counterBox.style.alignItems = "center";
+counterBox.style.gap = "100px";
+
+
+
+
+
 
 
 

@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.counter__display{
+    background: #000;
+    width: 250px;
+    height: 120px;
+}
