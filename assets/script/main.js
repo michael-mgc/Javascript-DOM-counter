@@ -52,6 +52,22 @@ counterBox.style.alignItems = "center";
 counterBox.style.gap = "100px";
 
 
+// Increase and decrease counter value
+let counter = 0
+
+function minus () {
+    counter--;
+    counterValue.textContent = counter;
+}
+function plus () {
+    counter++;
+    counterValue.textContent = counter;
+}
+
+minusBtn.addEventListener("click", minus);
+plusBtn.addEventListener("click", plus);
+
+
 
 
 
