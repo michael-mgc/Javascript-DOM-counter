@@ -8,4 +8,70 @@
     background: #000;
     width: 250px;
     height: 120px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #333;
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,0.1),
+        0 0 20px rgba(0,0,0,0.8);
 }
+
+.counter__value{
+    font-size: 5rem;
+    color: rgb(231, 249, 181);
+    font-family: "Orbitron", sans-serif;
+    text-shadow: 0 0 20px green;
+}
+
+.counter__platform{
+    background: #222;
+    padding: 60px;
+    border-radius: 20px;
+    display: flex;
+    gap: 40px;
+
+    box-shadow: 
+        inset 0 0 20px rgba(255,255,255,.05),
+        0 20px 40px rgba(0,0,0,.5);
+}
+
+.counter__btn-plus,
+.counter__btn-minus{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 3rem;
+    cursor: pointer;
+    border: 2px solid #000;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    transition: all 0.3s ease;
+}
+
+.counter__btn-minus {
+    background: #c1121f;
+    box-shadow: 
+        0 0 15px rgba(193, 18, 31, 0.6);
+}
+.counter__btn-minus:hover {
+    box-shadow:
+        0 0 10px #ff0000,
+        0 0 30px #ff0000,
+        0 0 60px #ff0000;
+}
+
+.counter__btn-plus {
+    background: #0077ff;
+    box-shadow:
+        0 0 15px rgba(0, 119, 255, 0.6);
+}
+.counter__btn-plus:hover {
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 30px #008cff,
+        0 0 60px #008cff;
+}
+

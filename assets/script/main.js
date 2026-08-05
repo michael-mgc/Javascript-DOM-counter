@@ -10,10 +10,11 @@ counterValue.textContent = "0";
 // Platform for plusBtn and minusBtn
 
 const counterPlatform = document.createElement("div");
-const plusBtn = document.createElement("button");
-plusBtn.textContent = "+";
 const minusBtn = document.createElement("button");
 minusBtn.textContent = "-";
+const plusBtn = document.createElement("button");
+plusBtn.textContent = "+";
+
 
 // Build DOM
 document.body.append(container);
@@ -23,8 +24,9 @@ counterBox.append(counterDisplay);
 counterDisplay.append(counterValue);
 
 counterBox.append(counterPlatform);
-counterPlatform.append(plusBtn);
 counterPlatform.append(minusBtn);
+counterPlatform.append(plusBtn);
+
 
 // Add class CSS
 
