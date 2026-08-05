@@ -45,3 +45,9 @@ javascript-counter-dom
 ## How to Run
 
 Clone the repository and open the `index.html` file in your browser.
+
+## Live Demo
+
+You can view the project here:
+
+[View Counter Demo](https://michael-mgc.github.io/Javascript-DOM-counter/)
