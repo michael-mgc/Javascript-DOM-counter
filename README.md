@@ -51,3 +51,9 @@ Clone the repository and open the `index.html` file in your browser.
 You can view the project here:
 
 [View Counter Demo](https://michael-mgc.github.io/Javascript-DOM-counter/)
+
+## Project Presentation
+
+You can view the project presentation here:
+
+[JavaScript Counter Presentation](presentation/Counter_JS.pdf)
