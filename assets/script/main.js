@@ -9,10 +9,17 @@ const counterValue = document.createElement("span");
 // Platform for plusBtn and minusBtn
 
 const counterPlatform = document.createElement("div");
+
 const minusBtn = document.createElement("button");
 minusBtn.textContent = "-";
+
 const plusBtn = document.createElement("button");
 plusBtn.textContent = "+";
+
+const resetBtn = document.createElement("button");
+const resetIcon = document.createElement("span");
+resetIcon.textContent="↻";
+
 
 
 // Build DOM
@@ -25,17 +32,20 @@ counterDisplay.append(counterValue);
 counterBox.append(counterPlatform);
 counterPlatform.append(minusBtn);
 counterPlatform.append(plusBtn);
+counterBox.append(resetBtn);
+resetBtn.append(resetIcon);
 
 
 // Add class CSS
 
 container.classList.add("counter");
-counterBox.classList.add("counter__box")
-counterDisplay.classList.add("counter__display")
-counterValue.classList.add("counter__value")
-counterPlatform.classList.add("counter__platform")
-plusBtn.classList.add("counter__btn-plus")
-minusBtn.classList.add("counter__btn-minus")
+counterBox.classList.add("counter__box");
+counterDisplay.classList.add("counter__display");
+counterValue.classList.add("counter__value");
+counterPlatform.classList.add("counter__platform");
+plusBtn.classList.add("counter__btn-plus");
+minusBtn.classList.add("counter__btn-minus");
+resetBtn.classList.add("counter__btn-reset");
 
 
 // Apply inline styles
@@ -68,8 +78,17 @@ function plus () {
     localStorage.setItem("counter", counter);
 }
 
+function reset() {
+    counter = 0;
+    counterValue.textContent = counter;
+    localStorage.setItem("counter", counter);
+  }
+
+
 minusBtn.addEventListener("click", minus);
 plusBtn.addEventListener("click", plus);
+resetBtn.addEventListener("click", reset);
+
 
 
 
