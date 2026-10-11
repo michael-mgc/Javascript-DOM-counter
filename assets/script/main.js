@@ -5,7 +5,6 @@ const counterBox = document.createElement("div");
 // Display for value
 const counterDisplay = document.createElement("div");
 const counterValue = document.createElement("span");
-counterValue.textContent = "0";
 
 // Platform for plusBtn and minusBtn
 
@@ -53,19 +52,25 @@ counterBox.style.gap = "100px";
 
 
 // Increase and decrease counter value
-let counter = 0
+const valoreSalvato = localStorage.getItem("counter")
+let counter = Number(valoreSalvato) || 0;
+counterValue.textContent = counter;
 
 function minus () {
     counter--;
     counterValue.textContent = counter;
+    localStorage.setItem("counter", counter);
+
 }
 function plus () {
     counter++;
     counterValue.textContent = counter;
+    localStorage.setItem("counter", counter);
 }
 
 minusBtn.addEventListener("click", minus);
 plusBtn.addEventListener("click", plus);
+
 
 
 
