@@ -93,6 +93,18 @@ counterValue.textContent = counter;
 let comboClicks = 0;
 let lastClick = null;
 
+function updateAura(direction) {
+    if (direction === "plus") {
+        container.classList.add("aura-blue");
+        container.classList.remove("aura-red");
+    } else if (direction === "minus") {
+        container.classList.add("aura-red");
+        container.classList.remove("aura-blue");
+
+    }
+}
+
+
 function minus () {
     if(lastClick !== "minus"){
         comboClicks = 0;
@@ -108,6 +120,8 @@ function minus () {
     counter--;
     counterValue.textContent = counter;
     localStorage.setItem("counter", counter);
+
+    updateAura("minus");
 
 }
 function plus () {
@@ -126,12 +140,22 @@ function plus () {
     counter++;
     counterValue.textContent = counter;
     localStorage.setItem("counter", counter);
+
+    updateAura("plus")
 }
 
 function reset() {
     counter = 0;
     counterValue.textContent = counter;
     localStorage.setItem("counter", counter);
+
+    comboClicks = 0;
+    lastClick = null;
+
+    bonusBtn.hidden = true;
+    bonusMinusBtn.hidden = true;
+
+    container.classList.remove("aura-blue", "aura-red");
   }
 
 function useBonus() {
