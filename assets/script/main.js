@@ -94,6 +94,10 @@ let comboClicks = 0;
 let lastClick = null;
 
 function updateAura(direction) {
+    container.classList.remove("aura-blue", "aura-red");
+
+    void container.offsetWidth;
+
     if (direction === "plus") {
         container.classList.add("aura-blue");
         container.classList.remove("aura-red");
@@ -142,6 +146,7 @@ function plus () {
     localStorage.setItem("counter", counter);
 
     updateAura("plus")
+    buttonAnimation(plusBtn);
 }
 
 function reset() {
@@ -174,6 +179,11 @@ function useMinusBonus() {
     bonusMinusBtn.hidden = false;
 }
 
+function buttonAnimation(button){
+    button.classList.remove("clicked");
+    void button.offsetWidth;
+    button.classList.add("clicked")
+}
 
 
 
