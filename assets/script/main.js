@@ -1,6 +1,9 @@
 // Structure page
 const container = document.createElement("main");
 const counterBox = document.createElement("div");
+const arrowContainer = document.createElement("div");
+
+
 
 // Display for value
 const counterDisplay = document.createElement("div");
@@ -35,20 +38,26 @@ bonusMinusBtn.hidden = true;
 
 
 
+
 // Build DOM
 document.body.append(container);
 container.append(counterBox);
+container.append(arrowContainer);
+
 
 counterBox.append(counterDisplay);
 counterDisplay.append(counterValue);
 
 counterBox.append(counterPlatform);
 counterPlatform.append(minusWrapper);
+counterPlatform.append(plusWrapper);
+
 minusWrapper.append(minusBtn);
 minusWrapper.append(bonusMinusBtn);
-counterPlatform.append(plusWrapper);
+
 plusWrapper.append(plusBtn);
 plusWrapper.append(bonusBtn);
+
 counterBox.append(resetBtn);
 resetBtn.append(resetIcon);
 
@@ -56,6 +65,7 @@ resetBtn.append(resetIcon);
 // Add class CSS
 
 container.classList.add("counter");
+arrowContainer.classList.add("arrow-container");
 counterBox.classList.add("counter__box");
 counterDisplay.classList.add("counter__display");
 counterValue.classList.add("counter__value");
@@ -70,7 +80,7 @@ bonusMinusBtn.classList.add("counter__btn-bonusMinus");
 
 
 // Apply inline styles
-container.style.background = "#111";
+// container.style.background = "#111";
 container.style.height = "100vh";
 container.style.display = "flex";
 container.style.justifyContent = "center";
@@ -92,6 +102,32 @@ counterValue.textContent = counter;
 // Combo Click
 let comboClicks = 0;
 let lastClick = null;
+let comboTimer;
+
+function createArrowRain(direction) { 
+    for (let i = 0; i < 30; i++){
+
+        const delay = Math.random() * 3000;
+
+        setTimeout(() => {
+            const arrow = document.createElement("span");
+
+        arrow.textContent = direction === "up" ? "⬇" : "⬆";
+        arrow.classList.add("falling-arrow");
+
+        arrow.classList.add(direction === "up" ? "arrow-red" : "arrow-blue")
+
+        arrow.style.left = Math.random() * 100 + "%";
+        arrow.style.fontSize = (25 + Math.random() * 2) + "px";
+
+        arrowContainer.append(arrow);
+
+        arrow.addEventListener("animationend", () => {
+            arrow.remove();
+        });
+    }, delay);
+}
+ }
 
 function updateAura(direction) {
     container.classList.remove("aura-blue", "aura-red");
@@ -117,6 +153,10 @@ function minus () {
 
     lastClick = "minus";
     comboClicks++;
+
+    clearTimeout(comboTimer);
+    startComboTimer();
+
     if (comboClicks >= 5){
         bonusMinusBtn.hidden = false;
     }
@@ -126,8 +166,9 @@ function minus () {
     localStorage.setItem("counter", counter);
 
     updateAura("minus");
-
+    buttonAnimation(minusBtn);
 }
+
 function plus () {
     if(lastClick !== "plus"){
         comboClicks = 0;
@@ -137,9 +178,14 @@ function plus () {
     lastClick = "plus";
     comboClicks++;
 
+    clearTimeout(comboTimer);
+    startComboTimer();
+
+
     if (comboClicks >= 5){
         bonusBtn.hidden = false;
     }
+
 
     counter++;
     counterValue.textContent = counter;
@@ -147,6 +193,17 @@ function plus () {
 
     updateAura("plus")
     buttonAnimation(plusBtn);
+}
+
+function startComboTimer() {
+
+    comboTimer = setTimeout(() => {
+
+        comboClicks = 0;
+        lastClick = null;
+        bonusBtn.hidden = true;
+        bonusMinusBtn.hidden = true;
+    },5000);
 }
 
 function reset() {
@@ -168,7 +225,13 @@ function useBonus() {
     counterValue.textContent = counter;
     localStorage.setItem("counter", counter);
 
-    bonusBtn.hidden = false;
+    clearTimeout(comboTimer);
+    startComboTimer();
+
+    // bonusBtn.hidden = false;
+    updateAura("plus")
+    buttonAnimation(plusBtn);
+    createArrowRain("down");
 }
 
 function useMinusBonus() {
@@ -176,7 +239,13 @@ function useMinusBonus() {
     counterValue.textContent = counter;
     localStorage.setItem("counter", counter);
 
-    bonusMinusBtn.hidden = false;
+    clearTimeout(comboTimer);
+    startComboTimer();
+
+    // bonusMinusBtn.hidden = false;
+    updateAura("minus");
+    buttonAnimation(minusBtn);
+    createArrowRain("up");
 }
 
 function buttonAnimation(button){

@@ -22,10 +22,56 @@ body{
     width: 100%;
     box-sizing: border-box;
 
-    border-radius: 24px;
-    padding: 40px;
+    padding: 20px;
     transition: box-shadow 0.3s ease;
 
+}
+
+/* Animazione del bonus */
+
+.arrow-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.falling-arrow{
+    position: absolute;
+    top: -50px;
+    color: #0077ff;
+    opacity: 0.50;
+    font-size: 15px;
+}
+
+.arrow-blue {
+    color: #0077ff;
+    animation: rise 2s linear forwards;
+}
+@keyframes rise {
+    from {
+        transform: translateY(110vh);
+    }
+
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+
+.arrow-red {
+    color: #ff3333;
+    animation: fall 2s linear forwards;
+}
+@keyframes fall {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(110vh);
+    }
 }
 
 .counter__box{
@@ -40,7 +86,7 @@ body{
        inset 0 0 15px rgba(0, 140, 255, 0.5),
        inset 0 0 35px rgba(0, 140, 255, 0.3),
        inset 0 0 60px rgba(0, 140, 255, 0.15);
-    animation: plusGlow 0.5s ease;
+    animation: auraBlue 0.5s ease;
 
 }
 
@@ -51,9 +97,9 @@ body{
 
     50% {
         box-shadow:
-            inset 0 0 15px rgba(0, 140, 255, 0.5),
-            inset 0 0 35px rgba(0, 140, 255, 0.3),
-            inset 0 0 60px rgba(0, 140, 255, 0.15);
+            inset 0 0 30px rgba(0, 140, 255, 0.5),
+            inset 0 0 50px rgba(0, 140, 255, 0.3),
+            inset 0 0 80px rgba(0, 140, 255, 0.15);
     }
 }
 
@@ -62,6 +108,19 @@ body{
        inset 0 0 15px rgba(255, 50, 50, 0.5),
        inset 0 0 35px rgba(255, 50, 50, 0.3),
        inset 0 0 60px rgba(255, 50, 50, 0.15);
+    animation: auraRed 0.5s ease;
+}
+
+@keyframes auraRed {
+    0%, 100% {
+        box-shadow: none;
+    }
+    50%{
+        box-shadow:
+            inset 0 0 30px rgba(255, 50, 50, 0.5),
+            inset 0 0 50px rgba(255, 50, 50, 0.3),
+            inset 0 0 80px rgba(255, 50, 50, 0.15);
+    }
 }
 
 .counter__display{
@@ -120,8 +179,7 @@ position: relative;
 
 .counter__btn-minus {
     background: #c1121f;
-    box-shadow: 
-        0 0 15px rgba(193, 18, 31, 0.6);
+    box-shadow:  0 0 15px rgba(193, 18, 31, 0.6);
 }
 .counter__btn-minus:hover {
     box-shadow:
@@ -129,6 +187,24 @@ position: relative;
         0 0 30px #ff0000,
         0 0 60px #ff0000;
 }
+
+.counter__btn-minus.clicked {
+    animation: minusGlow 0.5s ease;
+}
+
+@keyframes minusGlow {
+    0%, 100% {
+            box-shadow:  0 0 15px rgba(193, 18, 31, 0.6);
+    }
+
+    50% {
+        box-shadow:
+            0 0 10px #ff0000,
+            0 0 30px #ff0000,
+            0 0 60px #ff0000;
+    }
+}
+
 
 .counter__btn-plus {
     background: #0077ff;
@@ -140,6 +216,7 @@ position: relative;
         0 0 10px #008cff,
         0 0 30px #008cff,
         0 0 60px #008cff;
+
 }
 .counter__btn-plus.clicked {
     animation: plusGlow 0.5s ease;
@@ -191,14 +268,14 @@ position: relative;
 .counter__btn-bonus {
     width: 120px;
     height: 120px;
-    border: 1px solid #35c275;
+    border: 1px solid #008cff;
     border-radius: 999px;
-    background-color: #163b26;
+    background-color: #040f50;
     color: #fff;
     font-size: 2rem;
     font-family: "Orbitron", sans-serif;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(54,194, 117, 0.35);
+    box-shadow: 0 0 20px rgba(54, 115, 194, 0.35);
 
     position: absolute;
     top: -100px;
