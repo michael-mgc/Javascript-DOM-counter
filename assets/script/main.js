@@ -112,7 +112,7 @@ function createArrowRain(direction) {
         setTimeout(() => {
             const arrow = document.createElement("span");
 
-        arrow.textContent = direction === "up" ? "⬇" : "⬆";
+        arrow.textContent = direction === "up" ? "↓" :  "↑";
         arrow.classList.add("falling-arrow");
 
         arrow.classList.add(direction === "up" ? "arrow-red" : "arrow-blue")
