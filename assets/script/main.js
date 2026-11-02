@@ -64,7 +64,7 @@ resetBtn.append(resetIcon);
 
 // Add class CSS
 
-container.classList.add("counter");
+container.classList.add("container");
 arrowContainer.classList.add("arrow-container");
 counterBox.classList.add("counter__box");
 counterDisplay.classList.add("counter__display");
