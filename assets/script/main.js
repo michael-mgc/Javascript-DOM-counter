@@ -105,20 +105,20 @@ let lastClick = null;
 let comboTimer;
 
 function createArrowRain(direction) { 
-    for (let i = 0; i < 30; i++){
+    for (let i = 0; i < 20; i++){
 
         const delay = Math.random() * 3000;
 
         setTimeout(() => {
             const arrow = document.createElement("span");
 
-        arrow.textContent = direction === "up" ? "↓" :  "↑";
+        arrow.textContent = direction === "up" ? "⬆︎" : "⬇︎";
         arrow.classList.add("falling-arrow");
 
-        arrow.classList.add(direction === "up" ? "arrow-red" : "arrow-blue")
+        arrow.classList.add(direction === "up" ? "arrow-blue" : "arrow-red")
 
         arrow.style.left = Math.random() * 100 + "%";
-        arrow.style.fontSize = (25 + Math.random() * 2) + "px";
+        arrow.style.fontSize = (35 + Math.random() * 2) + "px";
 
         arrowContainer.append(arrow);
 
@@ -217,6 +217,10 @@ function reset() {
     bonusBtn.hidden = true;
     bonusMinusBtn.hidden = true;
 
+    resetIcon.classList.remove("rotating");
+    void resetIcon.offsetWidth;
+    resetIcon.classList.add("rotating");
+
     container.classList.remove("aura-blue", "aura-red");
   }
 
@@ -230,8 +234,8 @@ function useBonus() {
 
     // bonusBtn.hidden = false;
     updateAura("plus")
-    buttonAnimation(plusBtn);
-    createArrowRain("down");
+    buttonAnimation(bonusBtn);
+    createArrowRain("up");
 }
 
 function useMinusBonus() {
@@ -244,8 +248,8 @@ function useMinusBonus() {
 
     // bonusMinusBtn.hidden = false;
     updateAura("minus");
-    buttonAnimation(minusBtn);
-    createArrowRain("up");
+    buttonAnimation(bonusMinusBtn);
+    createArrowRain("down");
 }
 
 function buttonAnimation(button){
