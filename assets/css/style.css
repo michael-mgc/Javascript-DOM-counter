@@ -26,6 +26,7 @@ body{
 }
 
 /* Animazione del bonus */
+/* Arrow animation */
 
 .arrow-container {
     position: fixed;
@@ -81,7 +82,7 @@ body{
     padding: 10px;
 }
 
-.counter.aura-blue {
+.container.aura-blue {
     box-shadow:
        inset 0 0 15px rgba(0, 140, 255, 0.5),
        inset 0 0 35px rgba(0, 140, 255, 0.3),
@@ -103,7 +104,7 @@ body{
     }
 }
 
-.counter.aura-red {
+.container.aura-red {
     box-shadow:
        inset 0 0 15px rgba(255, 50, 50, 0.5),
        inset 0 0 35px rgba(255, 50, 50, 0.3),
@@ -314,4 +315,29 @@ position: relative;
 .counter__btn-bonusMinus.clicked {
         animation: minusGlow 0.5s ease;
 
+}
+
+/* Tablet e schermi intermedi */
+@media (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
+
+    .counter__box{
+    max-width: 600px;
+  
+}
+
+.counter__display{
+    width: 300px;
+    height: 170px;
+   
+}
+
+.counter__platform{
+    padding: 60px;
+
+    gap: 40px;
+
+}
 }

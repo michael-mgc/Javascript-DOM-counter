@@ -8,6 +8,8 @@ const arrowContainer = document.createElement("div");
 // Display for value
 const counterDisplay = document.createElement("div");
 const counterValue = document.createElement("span");
+counterDisplay.setAttribute("aria-label", "Valore attuale del contatore");
+counterDisplay.setAttribute("aria-live", "polite");
 
 // Platform for plusBtn and minusBtn
 
@@ -15,23 +17,30 @@ const counterPlatform = document.createElement("div");
 
 const minusBtn = document.createElement("button");
 minusBtn.textContent = "-";
+minusBtn.setAttribute("aria-label", "Diminuisci il contatore");
+
 
 const plusBtn = document.createElement("button");
 plusBtn.textContent = "+";
+plusBtn.setAttribute("aria-label", "Aumenta il contatore");
 
 const minusWrapper = document.createElement("div");
 const plusWrapper = document.createElement("div");
 
+
 const resetBtn = document.createElement("button");
+resetBtn.setAttribute("aria-label", "Azzera il contatore");
 const resetIcon = document.createElement("span");
 resetIcon.textContent="↻";
 
 const bonusBtn = document.createElement("button");
+bonusBtn.setAttribute("aria-label", "Aumenta il contatore di 3");
 bonusBtn.textContent = "+ 3";
 bonusBtn.type = "button";
 bonusBtn.hidden = true;
 
 const bonusMinusBtn = document.createElement("button");
+bonusMinusBtn.setAttribute("aria-label", "Diminuisci il contatore di 3");
 bonusMinusBtn.textContent = "- 3";
 bonusMinusBtn.type = "button";
 bonusMinusBtn.hidden = true;
@@ -80,7 +89,6 @@ bonusMinusBtn.classList.add("counter__btn-bonusMinus");
 
 
 // Apply inline styles
-// container.style.background = "#111";
 container.style.height = "100vh";
 container.style.display = "flex";
 container.style.justifyContent = "center";
@@ -232,7 +240,6 @@ function useBonus() {
     clearTimeout(comboTimer);
     startComboTimer();
 
-    // bonusBtn.hidden = false;
     updateAura("plus")
     buttonAnimation(bonusBtn);
     createArrowRain("up");
@@ -246,7 +253,6 @@ function useMinusBonus() {
     clearTimeout(comboTimer);
     startComboTimer();
 
-    // bonusMinusBtn.hidden = false;
     updateAura("minus");
     buttonAnimation(bonusMinusBtn);
     createArrowRain("down");
