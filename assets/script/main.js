@@ -113,7 +113,7 @@ let lastClick = null;
 let comboTimer;
 
 function createArrowRain(direction) { 
-    for (let i = 0; i < 20; i++){
+    for (let i = 0; i < 10; i++){
 
         const delay = Math.random() * 3000;
 
@@ -126,7 +126,7 @@ function createArrowRain(direction) {
         arrow.classList.add(direction === "up" ? "arrow-blue" : "arrow-red")
 
         arrow.style.left = Math.random() * 100 + "%";
-        arrow.style.fontSize = (35 + Math.random() * 2) + "px";
+        arrow.style.fontSize = (20 + Math.random() * 45) + "px";
 
         arrowContainer.append(arrow);
 

@@ -140,7 +140,7 @@ body{
 }
 
 .counter__value{
-    font-size: 5rem;
+    font-size: 4rem;
     color: rgb(231, 249, 181);
     font-family: "Orbitron", sans-serif;
     text-shadow: 0 0 20px green;
@@ -332,6 +332,10 @@ position: relative;
     width: 300px;
     height: 170px;
    
+}
+
+.counter__value{
+    font-size: 5rem;
 }
 
 .counter__platform{

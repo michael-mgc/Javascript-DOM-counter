@@ -1,15 +1,22 @@
-# JavaScript Counter DOM
+# JavaScript Counter
 
-A simple web application that allows users to increase and decrease a counter value using two buttons (+ and -).
+A simple interactive web application that allows users to increase, decrease and reset a counter value.
 
-The project was built using pure JavaScript and DOM manipulation.
+The project was built using HTML, CSS and Vanilla JavaScript, with dynamic DOM manipulation and interactive visual effects.
 
 ## Features
 
 * Initial counter value set to 0
-* Increase the counter value using the + button
-* Decrease the counter value using the - button
-* Dynamically create HTML elements using JavaScript
+* Increase and decrease the counter value using the + and - buttons
+* Reset the counter value
+* Automatically save the counter value using `localStorage`
+* Combo system that unlocks +3 and -3 bonus buttons after 5 consecutive clicks in the same direction
+* Bonus buttons available for 5 seconds
+* Visual effects with colored aura and animated arrows
+
+## Preview
+
+![JavaScript Counter Preview](images/counter-preview.png)
 
 ## Technologies Used
 
@@ -25,12 +32,14 @@ With this project, I practiced:
 * Manipulating the DOM
 * Building the page structure using `append()`
 * Handling user interactions with `addEventListener`
-* Updating the page content dynamically
+* Using `localStorage` to save and retrieve data
+* Managing timers with `setTimeout()` and `clearTimeout()`
+* Creating animations and visual effects with CSS and JavaScript
 
 ## Project Structure
 
-```
-javascript-counter-dom
+```text
+javascript-counter
 │
 ├── index.html
 │
@@ -52,8 +61,3 @@ You can view the project here:
 
 [View Counter Demo](https://michael-mgc.github.io/Javascript-DOM-counter/)
 
-## Project Presentation
-
-You can view the project presentation here:
-
-[JavaScript Counter Presentation](presentation/Counter_JS.pdf)
